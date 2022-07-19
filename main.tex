@@ -1,0 +1,279 @@
+
+%----------------------------------------------------------------------------------------
+% 	Template: Abschlussarbeiten des Studiengangs Angewandte Informatik an der HTW Berlin
+% 	C. Schmidt 
+%----------------------------------------------------------------------------------------
+%	Pakete und Konfigurationen
+%----------------------------------------------------------------------------------------
+%\documentclass[twoside,twocolumn]{article}
+%\documentclass[german,a4paper,12pt,oneside]{scrbook}
+\documentclass[oneside,bibliography=totocnumbered,BCOR=5mm]{scrbook}% Voreinstellungen entfernt.
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[english]{babel}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage[hyphens]{url}
+\usepackage{url}
+\usepackage{stackengine}
+%\usepackage[english]{babel} % Language hyphenation and typographical rules
+\usepackage{marvosym}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{csquotes}
+\usepackage{xr}
+\newtheorem{satz}{Satz}[chapter]
+\theoremstyle{definition} 
+\newtheorem{definition}[satz]{Definition} 
+\theoremstyle{definition} 
+\newtheorem{lemma}[satz]{Lemma} 
+\theoremstyle{definition} 
+\newtheorem{bemerkung}[satz]{Bemerkung}
+\theoremstyle{definition} 
+\newtheorem{korollar}[satz]{Korollar} 
+\theoremstyle{definition}
+\newtheorem{beispiel}[satz]{Beispiel} 
+\theoremstyle{definition} 
+\newtheorem{algorithmus}{Algorithmus} 
+\newenvironment{beweis}{\begin{proof}[Beweis]}{\end{proof}}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{adjustbox}
+\usepackage{multirow}
+\usepackage{graphicx}
+
+
+%----------------------------------------------------------------------------------------
+%	BIB.-Datei und Quellenverwaltung
+%----------------------------------------------------------------------------------------
+\usepackage[backend=bibtex, style=numeric]{biblatex}
+\addbibresource{template.bib}
+%\usepackage{natbib} % use natbib for references 
+%----------------------------------------------------------------------------------------
+\usepackage{blindtext} % Package to generate dummy text throughout this template 
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+%\usepackage{abstract} % Allows abstract customization
+%\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+%\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+%\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+%\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
+%\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+%\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+%\usepackage{fancyhdr} % Headers and footers
+%\pagestyle{fancy} % All pages have headers and footers
+%\fancyhead{} % Blank out the default header
+%\fancyfoot{} % Blank out the default footer
+%\fancyhead[C]{Ethics in Progress (EiP) $\bullet$ 2019 } % Custom header text
+%\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+\usepackage{titling} % Customizing the title section
+
+%----------------------------------------------------------------------------------------
+%	Listings
+%----------------------------------------------------------------------------------------
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ 
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  firstnumber=1,                % start line enumeration with line 1000
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+
+%----------------------------------------------------------------------------------------
+%	Haupttextteil
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+% Titelseite
+% \pagestyle{empty}       % keine Seitennummer
+\begin{titlepage}
+\begin{center}
+\includegraphics{Images/General/HTW_Berlin_Logo_farbig.jpg}
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+\textit{\huge User-centered development of a to-do management system}
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+\textbf{\Large Master's Thesis}
+\linebreak[4]
+\linebreak[4]
+submitted in fulfillment of the requirements for the degree of
+\linebreak[4]
+\linebreak[4]
+\textbf{\Large Master of Science (M.Sc.)}
+\linebreak[4]
+\linebreak[4]
+to the
+\linebreak[4]
+\linebreak[4]
+Department IV - Computer Science, Communication and Business
+\linebreak[4]
+Degree Program Applied Computer Science
+\linebreak[4]
+University of Applied Sciences Berlin (HTW)
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+First Advisor: Prof. Dr.-Ing. Johann Habakuk Israel
+\linebreak[4]
+Second Advisor: Sebastian Keppler
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+Submitted by Phillip Friedel [s0557917]
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+03. October 2022
+
+\end{center}
+\end{titlepage}
+\newpage    % Seitenwechsel
+
+\thispagestyle{empty}       % keine Seitennummer
+\section*{Zusammenfassung}
+
+
+\section*{Abstract}
+
+
+
+\clearpage
+%Seite 1
+\pagenumbering{roman}% Seitennummerierung "roemisch"
+%\setcounter{page}{1} 
+
+\tableofcontents  
+
+
+%Seite 
+
+ \listoffigures
+ 
+ %Seite 6
+
+ \listoftables
+ 
+
+
+ \lstlistoflistings
+
+.
+
+
+\newpage
+
+\pagenumbering{arabic}  % Nummerierung der Seiten in 'arabisch' % neues Kapitel mit Namen "Introduction"
+ %Seite 1
+ % \setcounter{page}{1}   % setzt Seitenzaehlung auf 1
+ 
+\include{01_introduction}
+\include{02_fundamentals_state_of_art}
+\include{03_user_centered_design}
+\include{04_implementation}
+\include{05_evaluation}
+\include{06_conclusion}
+
+
+
+%----------------------------------------------------------------------------------------
+
+%\printbibliography[heading=bibintoc]
+
+
+\newpage
+
+%\chapter{Abk\"urzungsverzeichnis}
+%\newpage
+%\chapter{Glossar}
+
+
+
+
+\begin{appendix}
+
+\pagenumbering{Roman}
+
+\chapter{Appendix}
+
+
+
+\newpage
+% Letzte Seite
+\thispagestyle{empty}       % keine Seitennummer
+%\vspace*{18cm}
+\noindent
+
+\section*{Declaration of Academic Honesty}
+I hereby affirm in lieu of oath by my signature that I have prepared the above thesis independently and without outside assistance and that I have marked all passages that I have taken verbatim or approximately verbatim from publications as such, and that I have not used any literature or other aids other than those indicated. The thesis has not been submitted to any other examination authority in this or a similar form.
+
+\section*{Eidesstattliche Versicherung}
+Hiermit versichere ich an Eides statt durch meine Unterschrift, dass ich die vorstehende Arbeit selbstst\"andig und ohne fremde Hilfe angefertigt und alle Stellen, die ich w\"ortlich oder ann\"ahernd w\"ortlich aus Ver\"offentlichungen entnommen habe, als solche kenntlich gemacht habe, mich auch keiner anderen als der angegebenen Literatur oder sonstiger Hilfsmittel bedient habe. Die Arbeit hat in dieser oder \"ahnlicher Form noch keiner anderen Pr\"ufungsbeh\"orde vorgelegen.\\
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+\linebreak[4]
+-------------------------------------------------------\linebreak[4]
+Datum, Ort, Unterschrift
+
+
+\end{appendix}
+
+
+\end{document}
+
